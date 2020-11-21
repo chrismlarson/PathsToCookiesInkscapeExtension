@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Paths to Cookies</_name>
+  <id>command.extrude.openscad</id>
+  <dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+  <dependency type="executable" location="extensions">paths2cookies.py</dependency>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+  <dependency type="executable" location="extensions">simpletransform.py</dependency>
+  <dependency type="executable" location="extensions">cubicsuperpath.py</dependency>
+  <dependency type="executable" location="extensions">cspsubdiv.py</dependency>
+  <dependency type="executable" location="extensions">bezmisc.py</dependency>
+
+<param name="tab" type="notebook">
+
+
+  <page name="splash" _gui-text="Paths to cookies">
+    <_param name="header" type="description" xml:space="preserve">
+
+	Cookies Cutters Generator
+Instructables link :
+Thingiverse link :
+GitHub link :
+
+
+</_param>
+    <param name="fname" type="string" _gui-text="Output file">C:\001.scad</param>
+	    <_param name="help" type="description" xml:space="preserve">
+Exported file address (be careful to not overwrite it).
+	</_param>
+    <param name="height" type="float" min="0" max="1000" precision="2" _gui-text="Height (mm)">12.0</param>
+    <param name="thickness" type="float" min="0" max="1000" precision="2" _gui-text="Thickness (mm)">1.2</param>
+
+
+  </page>
+
+   <page name="Advanced" _gui-text="Advanced settings">
+    <_param name="aboutpage" type="description" xml:space="preserve">
+	Advanced settings for better prints !
+
+</_param>
+	
+    <param name="Flanges_type" type="int" min="0" max="2" _gui-text="Flanges type">1</param>
+	<_param name="help" type="description" xml:space="preserve">
+0 for none, 1 for classic flange and 2 for bevel one (more to go)
+	</_param>
+    <param name="Flange_height" type="float" min="0" max="1000" precision="2" _gui-text="Flange height (mm)">1.2</param>
+	<param name="Flange_width" type="float" min="0" max="1000" precision="2" _gui-text="Flange width (mm)">3.0</param>
+    <_param name="help" type="description" xml:space="preserve">
+For a Bevel flange type I advice to keep the height superior of the width.
+	</_param>
+
+	<param name="filling" type="boolean" _gui-text="Solid">False</param>			
+    <_param name="help" type="description" xml:space="preserve">
+Look the instructables for mor info about this parameter.
+	</_param>
+    <param name="smoothness" type="float" min="0.0001" max="5" _gui-text="Smoothing">0.2</param>
+	    <_param name="help" type="description" xml:space="preserve">
+The lower, the better (but longer).
+	</_param>
+
+  </page>
+
+  
+   <page name="Grid" _gui-text="Grid settings">
+    <_param name="aboutpage" type="description" xml:space="preserve">
+	
+For some multi elements cookie cutters you will need a back grid to keep them in place.
+To use the grid you just have to check the "Enable Grid".
+
+Note : Using grid will add a non negligible compute time, and also printing time and plastic, only use it if needed.
+</_param>
+
+	<param name="grid" type="boolean" _gui-text="Enable Grid">False</param>			
+    <param name="gridBThick" type="float" min="0" max="1000" precision="2" _gui-text="Grid bars thickness (mm)">1.2</param>
+    <param name="gridBSpace" type="float" min="0" max="1000" precision="2" _gui-text="Grid bars spacing  (mm)">8</param>
+    	<_param name="help" type="description" xml:space="preserve">
+Will define the thickness and spacing of the grid bars.	</_param>
+    <param name="rotateZ" type="float" min="0" max="1000" precision="2" _gui-text="Grid rotation adjustment (mm)">45</param>
+    <_param name="help" type="description" xml:space="preserve">
+Rotate the grid on Z axis for better adjustments.	</_param>
+
+  </page>
+  
+  
+  
+  
+  <page name="info" _gui-text="About...">
+    <_param name="aboutpage" type="description" xml:space="preserve">
+This extension converts Inkscape paths to
+ready to print cookie cutter in OpenSCAD.
+Before using, first convert objects 
+to paths with the "Path &gt; Object
+to Path" menu item.
+
+Note that the paths must be polygonal.
+Non-polygonal paths will not render well
+in OpenSCAD.  Thus, while you can convert
+text to a path, letters with closed loops
+will not appear as you expect in OpenSCAD
+(e.g., the letter "o").
+
+Inkscape's units of pixels are converted
+to millimeters using the SVG Standard's
+definition of 90 pixels = 1 inch.
+
+This script is a direct fork of the 
+Path to OpenSCAD v0.9 script by
+Dan Newman (dan newman @ mtbaldy us)
+
+Modified by to build a cookie cutter
+generator by Leo Marius
+(contact @ leomarius com)
+v0.2
+
+</_param>
+  </page>
+</param>
+
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu _name="Generate from Path"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">paths2cookies.py</command>
+  </script>
+</inkscape-extension>
