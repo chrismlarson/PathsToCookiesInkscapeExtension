@@ -516,7 +516,7 @@ class OpenSCAD( inkex.Effect ):
 		else:
 			id = re.sub( '[^A-Za-z0-9_]+', '', id )
 		self.f.write( 'module poly_' + id + '(h)\n{\n' )
-		self.f.write( '  scale([25.4/90, -25.4/90, 1]) union()\n  {\n' )
+		self.f.write( '  scale([84.8945/90, -84.8945/90, 1]) union()\n  {\n' )
 
 		# And add the call to the call list
 		self.call_list.append( 'poly_%s(%s);\n' % ( id, '''h''' ) )
