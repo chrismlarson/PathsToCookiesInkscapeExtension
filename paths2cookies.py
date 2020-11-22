@@ -956,7 +956,7 @@ full= ''')
 			
 			self.f.write(''' ;  //For build full or empty objects (see instuctables for details)
 borderThick = %s  ;    //border thickness (mm)
-cutterThick = borderThick  ;     //cookiecutter wall thickness
+cutterThick = borderThick ;     //cookiecutter wall thickness
 h=   %s  ;    //total height of the cookie cutter (mm)
 borderType=  %s   ;    //type of border, 0 none, 1-classic, 2-cone
 Lreb = %s;     //Width of border (en mm)
@@ -1029,7 +1029,7 @@ if (borderType==2) {
 
 
 module borders(h){
-cylinder(r=cutterThick,h=h*.9);
+cylinder(r=cutterThick,h=h*.75);
 cylinder(r=cutterThick/2,h=h);
 }
 
