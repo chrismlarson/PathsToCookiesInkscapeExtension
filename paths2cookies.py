@@ -974,7 +974,7 @@ gridThickness=Hreb; //thickness of grid
 moveGridX=0;    //X shift for adujustments
 moveGridY=0;    //Y shift for adjustments
 rotateGridZ=%s;  //Z rotation for adjtments
-$fn = 0.1;
+$fn = 10;
 
 
 ''' % (self.options.thickness, self.options.height, self.options.Flanges_type, self.options.Flange_width, self.options.Flange_height, self.options.gridBThick, self.options.gridBSpace, self.options.rotateZ ) )
